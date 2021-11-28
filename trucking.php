@@ -3,6 +3,8 @@ $error='';
     if(isset($_POST['submit'])){
 
         $cname=$_POST['cname'];
+        $cdl=$_POST['cdl'];
+        $losspay=$_POST['losspay'];
         $fname=$_POST['fname'];
         $mname=$_POST['mname'];
         $lname=$_POST['lname'];
@@ -19,6 +21,8 @@ $error='';
 
             $xml = new SimpleXMLElement("<user></user>");
             $xml->addChild('cname',$cname);
+            $xml->addChild('cdl',$cdl);
+            $xml->addChild('losspay',$losspay);
             $xml->addChild('fname',$fname);
             $xml->addChild('mname',$mname);
             $xml->addChild('date',$dob);
@@ -56,30 +60,34 @@ $error='';
         <br>
         <?php echo $error; ?>
         <form action="" method="post">
-            <label for="cname">Company Name: </label>
-            <input type="text" size="60px" required placeholder="Company Name" id="cname"><br><br>
-            <label for="cname">Owner: </label>
-            <input type="text" size="20px" required placeholder="First Name" id="fname">
-            <input type="text" size="20px" required placeholder="Middle Name" id="mname">
-            <input type="text" size="20px" required placeholder="Last Name" id="lname"><br><br>
-            <label for="cname">E-mail: </label>
-            <input type="text" size="60px" required placeholder="E-mail" id="mail"><br><br>
-            <label for="cname">D.O.B: </label>
-            <input type="text" size="15px" required placeholder="Month" id="mm"> /
-            <input type="text" size="15px" required placeholder="Day" id="dd"> /
-            <input type="text" size="15px" required placeholder="Year" id="yy"><br><br>
-            <label for="cname">DOT: </label>
-            <input type="text" size="20px" required placeholder="DOT" id="dot"><br><br>
+            <label >Company Name: </label>
+            <input type="text" size="60px" required placeholder="Company Name" name="cname"><br><br>
+            <label >Owner: </label>
+            <input type="text" size="20px" required placeholder="First Name" name="fname">
+            <input type="text" size="20px" required placeholder="Middle Name" name="mname">
+            <input type="text" size="20px" required placeholder="Last Name" name="lname"><br><br>
+            <label >E-mail: </label>
+            <input type="text" size="60px" required placeholder="E-mail" name="mail"><br><br>
+            <label >D.O.B: </label>
+            <input type="text" size="15px" required placeholder="Month" name="mm"> /
+            <input type="text" size="15px" required placeholder="Day" name="dd"> /
+            <input type="text" size="15px" required placeholder="Year" name="yy"><br><br>
+            <label >DOT: </label>
+            <input type="text" size="20px" required placeholder="DOT" name="dot"><br><br>
 
-            <label for="cname">Does owner have CDL License?</label>
-            <input type="checkbox" name="Yes" value="Yes"> Yes
-            <input type="checkbox" name="No" value="No"> No<br><br>
+            <label >Does owner have CDL License?</label>
+            <input type="radio" id="Yes" name="cdl" value="yes">
+            <label for="yes">yes</label>
+            <input type="radio" id="no" name="cdl" value="no">
+            <label for="no">no</label><br><br>
 
-            <label for="cname">Loss Payees/Lease?</label>
-            <input type="checkbox" name="Yes" value="Yes"> Yes
-            <input type="checkbox" name="No" value="No"> No<br><br>
+            <label >Loss Payees/Lease?</label>
+            <input type="radio" id="Yes" name="losspay" value="yes">
+            <label for="yes">yes</label>
+            <input type="radio" id="no" name="losspay" value="no">
+            <label for="no">no</label><br><br>
 
-            <button type="submit">Submit</button><br><br>
+            <button type="submit" name="submit">Submit</button><br><br>
         </form>
     </fieldset>
 </body>
