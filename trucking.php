@@ -52,6 +52,10 @@ $error='';
             width: 45%;
             margin: auto;
         }
+        .required::after {
+            content: "*";
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -60,19 +64,19 @@ $error='';
         <br>
         <?php echo $error; ?>
         <form action="" method="post">
-            <label >Company Name: </label>
+            <label class="required" >Company Name: </label>
             <input type="text" size="60px" required placeholder="Company Name" name="cname"><br><br>
-            <label >Owner: </label>
+            <label class="required">Owner: </label>
             <input type="text" size="20px" required placeholder="First Name" name="fname">
-            <input type="text" size="20px" required placeholder="Middle Name" name="mname">
+            <input type="text" size="20px" placeholder="Middle Name" name="mname">
             <input type="text" size="20px" required placeholder="Last Name" name="lname"><br><br>
-            <label >E-mail: </label>
+            <label class="required">E-mail: </label>
             <input type="text" size="60px" required placeholder="E-mail" name="mail"><br><br>
-            <label >D.O.B: </label>
+            <label class="required">D.O.B: </label>
             <input type="text" size="15px" required placeholder="Month" name="mm"> /
             <input type="text" size="15px" required placeholder="Day" name="dd"> /
             <input type="text" size="15px" required placeholder="Year" name="yy"><br><br>
-            <label >DOT: </label>
+            <label class="required">DOT: </label>
             <input type="text" size="20px" required placeholder="DOT" name="dot"><br><br>
 
             <label >Does owner have CDL License?</label>
